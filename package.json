@@ -2,8 +2,9 @@
   "name": "clase_node_actualizada",
   "version": "1.0.0",
   "description": "Clase de node actualizada implementada con  lista de canciones",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
+    "dev":"nodemon index.mjs" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
