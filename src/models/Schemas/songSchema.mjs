@@ -1,4 +1,4 @@
-import mongoose, { version } from "mongoose"
+import mongoose from "mongoose"
 
 export const songSchema=new mongoose.Schema({
     codigo:{type:Number,required:true},
