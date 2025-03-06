@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('details/head')%>
+
+    <body class="bg-secondary d-flex flex-column min-vh-100">
+        <div class="container-fluid flex-grow-1 d-flex flex-column p-0 m-0 ">
+            <div><%-include('details/navbar')%></div>
+
+            <main class="flex-grow-1 d-flex justify-content-center align-items-center"><%-include(content)%></main>
+
+            <div><%-include('details/footer')%></div>
+        </div>
+    </body>
+
+</html>

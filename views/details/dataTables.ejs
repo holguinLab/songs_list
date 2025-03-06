@@ -1,0 +1,33 @@
+<!-- CSS de DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<!-- jQuery (Requerido) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- JS de DataTables -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<!-- Configuracion de las tablas -->
+<script>
+    $(document).ready(function () {
+        $('#miTabla').DataTable({
+            paging: true, // Paginación
+            searching: true, // Búsqueda
+            ordering: true, // Ordenamiento
+            pageLength: 5, // Número de filas por página
+            lengthMenu: [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"] ], // Opciones del menú
+            language: {
+                search: "Buscar:", // Personaliza el texto de búsqueda
+                lengthMenu: "Mostrar  _MENU_  registros 🎵",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                zeroRecords: 'NO SE ENCONTRARON CONCIDENCIAS ',
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                }
+            }
+        });
+    });
+
+    
+</script>

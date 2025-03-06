@@ -1,0 +1,44 @@
+<%if (songs.length > 0){%> <!-- Como songs es una lista siempre devolvera la lista vacia , debemos comparar si la longitud es 0 -->
+
+
+    <div class="table-responsive w-75 text-light  " data-bs-theme="dark">
+        <div class="mb-5">
+            <a href="/exportSongs" class="btn btn-success">Excel</a>
+            <a href="/exportPdf" class="btn btn-danger">PDF</a>
+            <a href="/sendEmail" class="btn btn-info">Correo</a>
+        </div>
+        <table id="miTabla" class="table w-100 pt-5 mb-5 table-hover">
+            <thead class="table-success">
+                <tr>
+                    <th>codigo</th>
+                    <th>Titulo</th>
+                    <th>Artista</th>
+                    <th>Duracion</th>
+                    <th>Estrellas</th>
+                    <th>Genero</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% songs.forEach((song)=>{%>
+                    <tr>
+                        <td><%=song.codigo %> </td>
+                        <td><%=song.titulo %> </td>
+                        <td><%=song.artista %> </td>
+                        <td><%=song.duracion %> </td>
+                        <td><%=song.estrellas %> </td>
+                        <td><%=song.genero %> </td>
+                        <td>
+                            <button class="btn btn-outline-info">Editar</button>
+                            <button class="btn btn-outline-warning">Eliminar</button>
+                        </td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+
+
+<%} else { %>
+    <h1> 😔 NO HAY CANCIONES AUN AGREGADAS</h1>
+<%}%>
