@@ -37,6 +37,7 @@ app.post('/addSong',async(req,res)=>{
         "duracion"  :req.body.duracion,
         "estrellas" :req.body.estrellas,
         "genero"    :req.body.genero,
+        "likes"     :req.body.likes,
     })
     await newSong.save()
     res.status(201).json({mensaje : 'Cancion Agregada correctamente ' , song : newSong})
@@ -58,10 +59,10 @@ app.get('/getOneSong/:id',async(req,res)=>{
 // * UPDATE 
 // Actualizar una cancion por codigo
 app.put('/updateSong/:id',async (req,res)=>{
-    const {titulo,artista,duracion,estrellas,genero} = req.body // obtiene los valores del body 
+    const {titulo,artista,duracion,estrellas,genero,likes} = req.body // obtiene los valores del body 
     const updateSong=await Songs.findOneAndUpdate(
         {'codigo':req.params.id}, // ! 🔥 Busca un documento donde el campo 'codigo' tenga el valor de req.params.id.///// req.params.id es el valor del parámetro de la URL que se pasa en la solicitud HTTP. http://localhost:3000/cancion/'12345' <---------de req.params.id.
-        {titulo:titulo,artista:artista,duracion:duracion,estrellas:estrellas,genero:genero}, // remplaza los valores del body por los de la bd
+        {titulo:titulo,artista:artista,duracion:duracion,estrellas:estrellas,genero:genero,likes:likes}, // remplaza los valores del body por los de la bd
         {new:true} // Retorna el documento actualizado true 
     )
 //! 🔥 IMPORTANTE: Siempre devolver una respuesta en la solicitud HTTP      
@@ -106,7 +107,8 @@ app.get('/exportSongs', async (req, res) => {
             { header: 'Título', key: 'titulo', width: 25 },
             { header: 'Artista', key: 'artista', width: 20 },
             { header: 'Duración', key: 'duracion', width: 10 },
-            { header: 'Estrellas', key: 'estrellas', width: 10 },
+            { header: 'Estrellas', key: 'estrellas', width: 25 },
+            { header: 'Likes', key: 'likes', width: 25 },
             { header: 'Género', key: 'genero', width: 15 }
         ];
 
@@ -118,6 +120,7 @@ app.get('/exportSongs', async (req, res) => {
                 artista: song.artista,
                 duracion: song.duracion,
                 estrellas: song.estrellas,
+                likes: song.likes,
                 genero: song.genero
             });
         });
@@ -156,7 +159,7 @@ app.get('/exportPdf', async (req, res) => {
 
     // 📌 Agregar canciones al PDF
     songs.forEach(song => {
-        doc.fontSize(14).text(` ${song.titulo} - ${song.artista} (${song.duracion}) - ${song.genero} - ${song.estrellas}`);
+        doc.fontSize(14).text(` ${song.titulo} - ${song.artista} (${song.duracion}) - ${song.genero} - ${song.estrellas} - ${song.likes}`);
         doc.moveDown();
     });
 
