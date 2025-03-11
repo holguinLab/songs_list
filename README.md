@@ -48,9 +48,15 @@ npm run dev
 ## 📓 Tareas :
 
 
+- Investigar sobre router y como hacerlo con controlador  ( en los paths)
+- clean arquitecment
+
 ---
 
 
 
 ### 📝 2. Apuntes Rápidos  
 
+#### Paquetes nuevos que instalamos 
+- `validator`: Para validar correos electrónicos.  
+- `bcrypt`: Para encriptar contraseñas.  

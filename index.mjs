@@ -8,8 +8,8 @@ import path from 'path' // Libreria para EJS generar Rutas renderizadas
 import ExcelJS from 'exceljs'; // Exportar datos a Excel 
 import PDFDocument from "pdfkit"; // Exportar PDF
 import nodemailer from "nodemailer" // Enviar correo desde node
+import { router  } from './routes/router.mjs' // Importamos las rutas dentro del archivo router
 //#endregion
-
 
 
 // * Creacion del servidor con express 
@@ -50,6 +50,7 @@ app.get('/getAllSong',async(req,res)=>{
     res.json(await Songs.find())
 })
 
+
 // Obtener SOLO un dato con el codigo 
 app.get('/getOneSong/:id',async(req,res)=>{
     res.json(await Songs.findOne({'codigo':req.params.id})) // !Busca un documento donde el campo 'codigo' tenga el valor de req.params.id.///// req.params.id es el valor del parámetro de la URL que se pasa en la solicitud HTTP. http://localhost:3000/cancion/'12345' <---------
@@ -78,16 +79,9 @@ app.delete('/delSong/:id',async(req,res)=>{
 })
 //#endregion
 
-//#region EJS
+//#region Routs
 
-// * RUTA : HOME
-app.get('/', async (req,res)=>res.render('base',{titulo:'HOME',content:'home'}))
-
-// * RUTA : songs (listar todas las canciones)
-app.get('/songs',async(req,res)=>{
-    const songs = await Songs.find()
-    res.render('base',{titulo:'SONGS',content:'songs/listSongs',songs})
-})
+app.use('/v1',router)
 
 //#endregion 
 
@@ -203,3 +197,5 @@ app.post("/sendEmail", async (req, res) => {
 app.listen(PORT,()=>{
     console.log(`Apliacacion corriendo en el puerto : ${PORT}`)
 })
+
+
