@@ -1,0 +1,53 @@
+<form id="form" method="post" action="registerSongs/" class="form d-flex  row w-50 g-2 gap-3 bg-body p-2  rounded-4 shadow-lg">
+
+    <% if (Mensaje) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong><%=Mensaje%></strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } else { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+            <strong><%=Mensaje%></strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+
+    <div class="col-md-2"> 
+        <label for="codigo" class="form-label">Codigo</label>
+        <input name="codigo" type="text" class="form-control " placeholder="Codigo">
+    </div>
+
+    <div  class="col-md-4">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input name="titulo" type="text" class="form-control " placeholder="titulo">
+    </div>
+    
+    <div  class="col-md-4">
+        <label for="artista" class="form-label">Artista</label>
+        <input name="artista" type="text" class="form-control " placeholder="artista">
+    </div>
+
+    <div  class="col-md-4">
+        <label for="duracion" class="form-label">Duracion</label>
+        <input  name="duracion" type="text" class="form-control " placeholder="duracion">
+    </div>
+    
+    <div class="col-md-2">
+        <label for="estrellas" class="form-label">Estrellas</label>
+        <input name="estrellas" type="text" class="form-control " placeholder="estrellas">
+    </div>
+
+    <div class="col-md-4">
+        <label for="genero" class="form-label">Genero</label>
+        <input name="genero" type="text" class="form-control " placeholder="genero">
+    </div>
+
+
+    <div class="col-md-4">
+        <label for="likes" class="form-label">Likes</label>
+        <input name="likes" type="text" class="form-control " placeholder="Likes">
+    </div>
+    <div>
+        <button  type="submit" class="btn me-auto btn-primary col-md-4">Guardar</button>
+    </div>
+</form> 

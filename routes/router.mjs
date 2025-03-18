@@ -10,7 +10,8 @@ export const router = express.Router()
 // Rutas de Canciones 
 router.get('/',songController.home)
 router.get('/songs',songController.listSongs)
-
+router.get('/formularioSongs',songController.reqFormSongs)
+router.post('/registerSongs',songController.postFormSong)
 
 // Rutas de Usuarios
 router.get('/usuarios',usuarioController.listUsuario)
