@@ -8,24 +8,7 @@
         </div>
         <table id="miTabla" class="table w-100 pt-3 mb-3 table-hover">
             <thead class="table-success ">
-                <tr > 
-                    <th class="text-center">codigo</th>
-                    <th class="text-center">Titulo</th>
-                    <th class="text-center">Artista</th>
-                    <th class="text-center">Duracion</th>
-                    <th class="text-center">Estrellas</th>
-                    <th class="text-center">Likes</th>
-                    <th class="text-center">Genero</th>
-                    <th class="text-center">Acciones</th>
-                </tr>
-            </thead>
-            <tbody >
-                <% songs.forEach((song)=>{%>
-                    <tr>
-                        <td class="text-center"><%=song.codigo %> </td>
-                        <td class="text-center"><%=song.titulo %> </td>
-                        <td><%=song.artista %> </td>
-                        <td class="text-center" ><%=song.duracion %> </td>
+                <tr        <td class="text-center" ><%=song.duracion %> </td>
                         <td><%='⭐'.repeat(song.estrellas) %> </td>
                         <td><%=song.likes %> </td>
                         <td class="text-center"><%=song.genero %> </td>
